@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        body {
+            margin: 2px;
+            padding: 2px;
+            color: white;
+            box-sizing: border-box;
+            background: #780206;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #061161, #780206);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #061161, #780206);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        td {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        input {
+            border-radius: 5px;
+            width: 20rem;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h2>Tasks to Do</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul id="taskList">    
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="task">
+                    <h2>Enter the task</h2>
+                </label></td>
+            <td><input type="text" name="task" id="taskName"></td>
+            <td><button onclick="addTask()">Submit</button></td>
+        </tr>
+    </table>
+
+    <script>
+        function addTask() {
+            let task = document.getElementById("taskName").value.trim(); // Get the input value and trim whitespace
+
+            if (task !== "") { // Check if the input is not empty
+                let li = document.createElement("li"); // Create a new list item
+                li.textContent = task; // Set the text of the list item
+                document.getElementById("taskList").appendChild(li); // Append the list item to the task list
+                document.getElementById("taskName").value = ""; // Clear the input field
+            } else {
+                alert("Please Enter a Task!"); // Alert if the input is empty
+            }
+        }
+    </script>
+</body>
+
+</html>

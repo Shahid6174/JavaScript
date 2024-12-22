@@ -1,0 +1,37 @@
+
+How does Javascript execute code + call stack???
+
+Javascript Execution Context --> How does JS run/execute in each file
+
+Contexts in browser:
+1. this <---- Global Execution Context
+2. Function Execution Context
+3. Eval Execution Context
+
+Phases: 
+1. Memory Creation Phase
+2. Execution Phase
+
+Let us take an example on how this code works: 
+
+let val1 = 10
+let val2 = 5
+function addTwo(num1, num2) {
+    total = num1 + num2;
+    return total
+}
+let res1 = addTwo(val1,val2)
+let res2 = addTwo(42,32)
+
+Step 1 - global execution/environment is allocated to this pointer 
+Step 2 - Memory Phase => All variables are gathered. Here, val1<-- undefined... val2<--undefined... addNum<--defintion...  res1<--undefined... res2<--undefined
+Step 3 - Execution Phase => val1 = 10, val2 = 5, addNum --> creates new variable environment + execution thread
+        Step 3a - val1<-- undefined... val2<--undefined... total<--undefined // Memory Phase
+        Step 3b - num1 = 10 and num2 = 5 and total = 15... total is returned to its parent Global Execution Context
+After this step the new global execution Context is deleted
+Step 4 - Again when addTwo is called, it new variable environment + execution thread
+        Step 4a - val1<-- undefined... val2<--undefined... total<--undefined // Memory Phase
+        Step 4b - num1 = 42 and num2 = 32 and total = 74... total is returned to its parent Global Execution Context
+After this step the new global execution Context is deleted
+
+How call stack works? --> First In Last Out

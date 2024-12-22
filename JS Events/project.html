@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        body{
+            justify-items: center;
+        }
+        button{
+            height: 100px;
+            width: 140px;
+            font-size: xx-large;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body id="bb">
+    <h1 style="text-align: center; font-size: 200px;">Hello, World!</h1>
+    <button id = "start">Start</button>
+    <button id = "stop">Stop</button>
+</body>
+<script>
+
+    const body = document.getElementById("bb")
+
+    const changeBg = function(){
+        const min = 0;
+        const max = 255;
+        const one = (Math.floor(Math.random()*(max-min+1)) + min);
+        const two = (Math.floor(Math.random()*(max-min+1)) + min);
+        const three = (Math.floor(Math.random()*(max-min+1)) + min);
+        body.style.background = `rgb(${one}, ${two}, ${three})`
+        console.log(`rgb(${one}, ${two}, ${three})`);
+    }
+    let bg;
+    const startBtn = document.getElementById("start").addEventListener('click', function(){
+        // console.log("cl");
+        if(!bg){
+            bg = setInterval(changeBg,1000)
+        }
+        const stopBtn = document.getElementById("stop").addEventListener('click', function(){
+            clearInterval(bg)
+            bg = null
+        })
+    })
+</script>
+</html>

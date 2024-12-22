@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(15, 51, 161);">
+    <h2>Amazing Images</h2>
+    <ul id="images">
+        <li><img id="leaf" width="200px" height="200px" src="https://images.pexels.com/photos/18893258/pexels-photo-18893258/free-photo-of-city-light-illuminating-treetops-at-night.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+        <li><img id="flower" width="200px" height="200px" src="https://images.pexels.com/photos/29334426/pexels-photo-29334426/free-photo-of-woman-holding-white-lilac-flowers-outdoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+        <li><img id="fire" width="200px" height="200px" src="https://images.pexels.com/photos/9477631/pexels-photo-9477631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+        <li><a id="google" style="color: aliceblue;" target="_blank" href="https://www.google.com">Google</a></li>
+    </ul>
+</body>
+<script>
+    // document.getElementById('fire').onclick = function(){
+    //     alert("fire clicked")
+    // }
+
+    // document.getElementById('fire').addEventListener('click', function(){
+    //     alert("Fire Clicked")
+    // }, false)
+    
+    //type events
+    //timestamp events
+    //preventDefault
+    //target, srcElement, currentTarget, clientX, clientY, screenX, screenY, altkey, ctrlkey, keyCode
+
+
+    // false -- bubbling and true -- capturing
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul")
+    // }, false)
+
+    // document.getElementById('fire').addEventListener('click', function(e){
+    //     console.log("clicked fire")
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("Google Clicked");
+    // })
+
+    document.getElementById('images').addEventListener('click', function(e){
+        // console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            let removeLi = e.target.parentNode;
+            removeLi.remove();
+            console.log(e.target.id);
+        }
+    }, false)
+
+</script>
+</html>

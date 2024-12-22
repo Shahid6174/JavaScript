@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahid | DOM 4</title>
+</head>
+<body style="background-color: palevioletred; font-size: x-large; color: aliceblue;">
+    <ul class="language">
+        <li>JAVASCRIPT</li>
+        <li>PYTHON</li>
+        <li>JAVA</li>
+    </ul>
+    <label for="iplang">Enter your language</label>
+    <input type="text" name="iplang" id="langName">
+    <button onclick="optiAddLang()">Click Here!</button>    
+</body>
+<script>
+    function addLanguage(){
+        const li = document.createElement('li');
+        const langName = document.getElementById('langName').value;
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)    
+        document.getElementById('langName').value = ""
+    }
+    
+    function optiAddLang(){  // optimal way
+        const li = document.createElement('li');
+        const langName = document.getElementById('langName').value;
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+        document.getElementById('langName').value = ""
+    }
+
+    // Editing values
+    const secLang = document.querySelector("li:nth-child(1)")
+    const newLi = document.createElement('li')
+    newLi.textContent = "C++"
+    secLang.replaceWith(newLi) // edits JS to C++
+
+    //removing values
+    const lastChild = document.querySelector("li:last-child")
+    lastChild.remove() // removes java
+</script>
+</html>
